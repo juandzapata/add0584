@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Me perdonas?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #titulo {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #si, #no {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #no:hover {
+            position: relative;
+            left: 10px; /* O la cantidad que desees mover el botón "No" al hacer hover */
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+
+    <h1 id="titulo">¿Me perdonas?</h1>
+
+    <button id="si" onclick="ocultarBotones()">Sí</button>
+    <button id="no" onmouseover="moverBoton()">No</button>
+
+    <script>
+        function ocultarBotones() {
+            document.getElementById('si').style.display = 'none';
+            document.getElementById('no').style.display = 'none';
+            document.getElementById('titulo').innerHTML = '¡Yo también te amo!';
+        }
+
+        function moverBoton() {
+            var noButton = document.getElementById('no');
+            var screenWidth = window.innerWidth;
+            var screenHeight = window.innerHeight;
+
+            // Generar posiciones aleatorias
+            var randomX = Math.floor(Math.random() * (screenWidth - 100)); // -100 para que no se salga completamente del lado derecho
+            var randomY = Math.floor(Math.random() * (screenHeight - 50)); // -50 para que no se salga completamente hacia abajo
+
+            // Aplicar las posiciones al botón
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
+    </script>
+
+</body>
+</html>
